@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import '../src/components/Row/Row.css'
+import { Row } from '../src/components/Row/Row'
+import {Banner} from '../src/components/Banner/Banner'
+import request from '../src/utils/request'
 
-function App() {
+export const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className="app">
+    
+<Banner/>
+      <Row title="NETFLIX ORIGINALS" urlFetch={request.fetchNetflixOriginals} isLargeRow></Row>
+      <Row title="Acción" urlFetch={request.fetchActionMovies} ></Row>
+      <Row title="Comedia" urlFetch={request.fetchComedyMovies} ></Row>
+      <Row title="Terror" urlFetch={request.fetchHorrorMovies}></Row>
 
-export default App;
+
+    </div>
+
+  )
+}
